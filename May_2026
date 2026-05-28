@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corda × Widespread Commercial Group — Growth Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1923;
+    --blue: #3B82F6;
+    --blue-light: #60A5FA;
+    --blue-dim: rgba(59,130,246,0.12);
+    --blue-border: rgba(59,130,246,0.25);
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --gray-100: #F1F4F8;
+    --gray-200: #E2E8F0;
+    --gray-500: #64748B;
+    --gray-700: #334155;
+    --text: #1A2332;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--white); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  .hero { background: var(--navy); padding: 80px 60px 90px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent); }
+  .logo { display: flex; align-items: center; gap: 18px; margin-bottom: 64px; }
+  .logo-mark { width: 44px; height: 44px; }
+  .logo-mark svg { width: 100%; height: 100%; }
+  .logo-wordmark { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--white); letter-spacing: -0.5px; }
+  .logo-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.2); }
+  .logo-sub { font-family: var(--sans); font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 2.5px; text-transform: uppercase; }
+  .hero-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(30px, 4vw, 50px); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 780px; margin-bottom: 32px; }
+  .hero h1 em { font-style: normal; color: var(--blue-light); }
+  .hero-meta { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .hero-meta-item { font-size: 13px; color: rgba(255,255,255,0.45); }
+  .hero-meta-item span { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  .guarantee-banner { background: var(--blue); padding: 28px 60px; display: flex; align-items: center; gap: 20px; }
+  .guarantee-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .guarantee-text { font-size: 15px; color: var(--white); font-weight: 500; line-height: 1.5; }
+  .guarantee-text strong { font-weight: 700; }
+
+  .section { padding: 72px 60px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .section-title { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+  .section-intro { font-size: 16px; color: var(--gray-500); max-width: 660px; line-height: 1.75; margin-bottom: 40px; }
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gray-200), transparent); margin: 0 60px; }
+
+  /* TRENDS */
+  .trends-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .trend-card { background: var(--gray-100); border-radius: 12px; padding: 28px; border-top: 3px solid var(--blue); }
+  .trend-number { font-family: var(--serif); font-size: 40px; font-weight: 900; color: var(--blue); opacity: 0.15; line-height: 1; margin-bottom: 8px; }
+  .trend-title { font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+  .trend-bullets { list-style: none; }
+  .trend-bullets li { font-size: 12px; color: var(--gray-500); line-height: 1.6; margin-bottom: 5px; padding-left: 12px; position: relative; }
+  .trend-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--blue); font-size: 11px; }
+
+  /* CURRENT POSITION */
+  .position-bg { background: var(--navy); }
+  .position-inner { max-width: 1100px; margin: 0 auto; padding: 72px 60px; }
+  .position-inner .section-title { color: var(--white); }
+  .position-inner .section-intro { color: rgba(255,255,255,0.75); }
+  .challenges-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .challenge-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; border-left: 3px solid var(--blue); }
+  .challenge-title { font-weight: 600; color: var(--white); font-size: 14px; margin-bottom: 8px; }
+  .challenge-body { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.65; }
+  .cycle-note { margin-top: 28px; padding: 24px 28px; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); border-radius: 12px; font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.75; }
+
+  /* PILLARS */
+  .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pillar-card { border: 1px solid var(--gray-200); border-radius: 16px; padding: 30px; position: relative; overflow: hidden; transition: box-shadow 0.2s; }
+  .pillar-card:hover { box-shadow: 0 8px 32px rgba(59,130,246,0.1); }
+  .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--blue); }
+  .pillar-num { font-family: var(--serif); font-size: 48px; font-weight: 900; color: var(--blue); opacity: 0.08; line-height: 1; position: absolute; top: 16px; right: 22px; }
+  .pillar-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); padding: 3px 9px; border-radius: 4px; margin-bottom: 12px; }
+  .pillar-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.3; }
+  .pillar-delivers-text { font-size: 14px; color: var(--gray-700); line-height: 1.7; margin-bottom: 14px; }
+  .pillar-why { padding-top: 14px; border-top: 1px solid var(--gray-200); }
+  .pillar-why-text { font-size: 13px; color: var(--blue); line-height: 1.65; font-weight: 500; }
+
+  .guarantee-section { background: var(--gray-100); border-radius: 16px; padding: 36px 40px; margin-top: 32px; border: 1px solid var(--gray-200); }
+  .guarantee-section h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .guarantee-section p { font-size: 14px; color: var(--gray-500); line-height: 1.75; }
+  .guarantee-section strong { color: var(--navy); }
+
+  /* ROI */
+  .roi-bg { background: linear-gradient(135deg, #0F1923 0%, #1a2d42 100%); }
+  .roi-inner { max-width: 1100px; margin: 0 auto; padding: 72px 60px; }
+  .roi-inner .section-title { color: var(--white); }
+  .roi-highlight { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); border-radius: 16px; padding: 44px; margin: 32px 0; text-align: center; }
+  .roi-highlight-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 20px; }
+  .roi-equation { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+  .roi-eq-item { text-align: center; }
+  .roi-eq-value { font-family: var(--serif); font-size: 40px; font-weight: 900; color: var(--white); line-height: 1; }
+  .roi-eq-sublabel { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 3px; }
+  .roi-eq-sublabel.accent { color: var(--blue-light); font-weight: 600; }
+  .roi-eq-op { font-size: 28px; color: var(--blue); font-weight: 300; }
+  .roi-highlight-body { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; max-width: 580px; margin: 0 auto; }
+  .roi-highlight-body strong { color: var(--white); }
+
+  /* PRICING */
+  .pricing-bg { background: var(--off-white); }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; padding: 72px 60px; }
+  .phase { margin-bottom: 44px; }
+  .phase-label { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 18px; }
+  .phase-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+  .pilot-card { background: var(--white); border: 2px solid var(--blue); border-radius: 16px; padding: 36px; display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: start; }
+  .pilot-price { text-align: center; padding: 22px 28px; background: var(--blue-dim); border-radius: 12px; border: 1px solid var(--blue-border); }
+  .pilot-price-value { font-family: var(--serif); font-size: 44px; font-weight: 900; color: var(--blue); line-height: 1; }
+  .pilot-price-period { font-size: 12px; color: var(--gray-500); margin-top: 4px; }
+  .pilot-price-duration { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--blue-border); }
+  .pilot-content h3 { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .pilot-content p { font-size: 13px; color: var(--gray-500); line-height: 1.75; margin-bottom: 16px; }
+  .pilot-guarantee { background: var(--blue-dim); border: 1px solid var(--blue-border); border-radius: 8px; padding: 12px 16px; font-size: 13px; color: var(--navy); font-weight: 500; }
+  .tiers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .tier-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 16px; padding: 32px; }
+  .tier-name { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .tier-price { font-family: var(--serif); font-size: 38px; font-weight: 900; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+  .tier-price span { font-size: 15px; font-weight: 400; color: var(--gray-500); font-family: var(--sans); }
+  .tier-annual { font-size: 11px; color: var(--gray-500); margin-bottom: 20px; }
+  .tier-divider { height: 1px; background: var(--gray-200); margin-bottom: 20px; }
+  .tier-desc { font-size: 13px; color: var(--gray-500); line-height: 1.7; margin-bottom: 16px; }
+  .tier-includes { list-style: none; }
+  .tier-includes li { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; color: var(--gray-700); margin-bottom: 8px; line-height: 1.5; }
+  .tier-includes li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .commission-callout { background: var(--navy); border-radius: 16px; padding: 36px; margin-top: 32px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+  .commission-callout h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .commission-callout p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  .commission-callout p strong { color: var(--white); }
+  .commission-math { text-align: center; flex-shrink: 0; }
+  .commission-math-value { font-family: var(--serif); font-size: 48px; font-weight: 900; color: var(--blue-light); line-height: 1; }
+  .commission-math-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  /* NEXT STEPS */
+  .steps-timeline { position: relative; margin-top: 40px; }
+  .steps-timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--blue), rgba(59,130,246,0.1)); }
+  .step-item { display: flex; gap: 24px; margin-bottom: 28px; position: relative; }
+  .step-dot { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); position: relative; z-index: 1; }
+  .step-content { padding-top: 10px; }
+  .step-timing { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+  .step-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+  .step-desc { font-size: 13px; color: var(--gray-500); line-height: 1.65; }
+
+
+  /* FIXED LOGO */
+  .fixed-logo {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 25, 35, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .fixed-logo-text {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: -0.3px;
+  }
+  @media (max-width: 768px) {
+    .hero, .section, .position-inner, .roi-inner, .pricing-inner { padding: 48px 24px; }
+    .trends-grid, .challenges-list, .pillars-grid, .tiers-grid { grid-template-columns: 1fr; }
+    .pilot-card, .commission-callout { grid-template-columns: 1fr; }
+    .guarantee-banner { padding: 24px; }
+    .section-divider { margin: 0 24px; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero > * { animation: fadeUp 0.6s ease both; }
+  .hero .logo { animation-delay: 0.1s; }
+  .hero .hero-label { animation-delay: 0.2s; }
+  .hero h1 { animation-delay: 0.3s; }
+  .hero .hero-meta { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- FIXED LOGO -->
+<div class="fixed-logo">
+  <svg width="18" height="18" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="16" cy="22" r="7" fill="white" opacity="0.85"/>
+    <circle cx="34" cy="12" r="5" fill="white" opacity="0.45"/>
+    <circle cx="34" cy="32" r="5" fill="white" opacity="0.45"/>
+    <line x1="23" y1="18" x2="29" y2="14" stroke="white" stroke-width="1.5" opacity="0.35"/>
+    <line x1="23" y1="26" x2="29" y2="30" stroke="white" stroke-width="1.5" opacity="0.35"/>
+    <circle cx="16" cy="22" r="3.5" fill="#3B82F6"/>
+  </svg>
+  <div class="fixed-logo-text">CORDA</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="22" r="7" fill="white" opacity="0.9"/>
+        <circle cx="34" cy="12" r="5" fill="white" opacity="0.5"/>
+        <circle cx="34" cy="32" r="5" fill="white" opacity="0.5"/>
+        <line x1="23" y1="18" x2="29" y2="14" stroke="white" stroke-width="1.5" opacity="0.4"/>
+        <line x1="23" y1="26" x2="29" y2="30" stroke="white" stroke-width="1.5" opacity="0.4"/>
+        <circle cx="16" cy="22" r="3.5" fill="#3B82F6"/>
+      </svg>
+    </div>
+    <div class="logo-wordmark">CORDA</div>
+    <div class="logo-divider"></div>
+    <div class="logo-sub">Growth Systems for CRE</div>
+  </div>
+
+  <div class="hero-label">Growth Partnership Plan</div>
+  <h1>How Widespread Commercial Group Can Build a <em>Predictable Deal Pipeline</em> and Eliminate Operational Drag Within 60 Days — Without Adding Headcount</h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Prepared for <span>Widespread Commercial Group</span></div>
+    <div class="hero-meta-item">Date <span>May 2026</span></div>
+    <div class="hero-meta-item">Confidential</div>
+  </div>
+</section>
+
+
+<!-- MARKET TRENDS -->
+<section class="section">
+  <div class="section-label">State of the Market</div>
+  <h2 class="section-title">The CRE Landscape Is Shifting Fast</h2>
+  <p class="section-intro">The firms winning today are not the ones with the most relationships — they are the ones with the most systematic, intelligent engines for generating and closing deals.</p>
+
+  <div class="trends-grid">
+    <div class="trend-card">
+      <div class="trend-number">01</div>
+      <div class="trend-title">A Wave of Loan Maturities Is Opening a Seller Window</div>
+      <ul class="trend-bullets">
+        <li>Loans originated 2017–2019 on 5–7 year terms are maturing now</li>
+        <li>Owners facing rate resets are weighing whether to refinance or sell</li>
+        <li>Brokerages reaching these owners first will win the listing conversation</li>
+      </ul>
+    </div>
+    <div class="trend-card">
+      <div class="trend-number">02</div>
+      <div class="trend-title">Manual Operations Are a Hidden Revenue Leak</div>
+      <ul class="trend-bullets">
+        <li>Admin tasks consume hours that should go toward sourcing and closing</li>
+        <li>Hiring to solve this is expensive and increasingly difficult</li>
+        <li>Automation is how lean teams are outperforming larger ones</li>
+      </ul>
+    </div>
+    <div class="trend-card">
+      <div class="trend-number">03</div>
+      <div class="trend-title">Disconnected Tools Create Disconnected Results</div>
+      <ul class="trend-bullets">
+        <li>Scattered data means warm relationships go cold</li>
+        <li>Older contacts with new intent are rarely reactivated without a system</li>
+        <li>Integrated pipelines convert more from the same effort</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CURRENT POSITION -->
+<section class="position-bg">
+  <div class="position-inner">
+    <div class="section-label">Current Position</div>
+    <h2 class="section-title">Where There's Room to Grow</h2>
+    <p class="section-intro">Widespread has strong fundamentals — the relationships and the market knowledge. The opportunity is in building systems that make those strengths work harder.</p>
+
+    <div class="challenges-list">
+      <div class="challenge-item">
+        <div class="challenge-title">Outbound Could Be More Consistent</div>
+        <div class="challenge-body">Current prospecting depends on how much time partners can carve out. A more systematic approach would create a steadier, more predictable flow of conversations.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-title">Transaction Coordination Takes Time</div>
+        <div class="challenge-body">Managing deal logistics manually pulls partner focus away from higher-value work. Automating this layer would free up meaningful capacity.</div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge-title">Relationship Management Could Work Harder</div>
+        <div class="challenge-body">Without a unified system, older contacts and warm leads can fall through the cracks. A smarter CRM would keep those relationships active and connected to new opportunities.</div>
+      </div>
+    </div>
+
+    <div class="cycle-note">
+      These three areas are connected. Freeing up time from transaction admin creates space for more outreach. Better outreach generates more conversations. A stronger CRM ensures none of those conversations are wasted. Solving them together compounds the impact.
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section">
+  <div class="section-label">The Ascend Framework</div>
+  <h2 class="section-title">Four Pillars for Predictable Pipeline Growth</h2>
+  <p class="section-intro">One principle: generate consistent deal conversations, manage relationships intelligently, and execute transactions efficiently — all without adding headcount.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <div class="pillar-tag">Pillar 1</div>
+      <div class="pillar-title">The Outbound Sales Engine</div>
+      <div class="pillar-delivers-text">A fully automated cold outreach system targeting qualified CRE prospects with personalized, sequenced messaging — running 24/7 without manual effort.</div>
+      <div class="pillar-why">
+        <div class="pillar-why-text">Replaces inconsistent prospecting with a predictable engine that functions as a virtual SDR at a fraction of the cost of a hire.</div>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <div class="pillar-tag">Pillar 2</div>
+      <div class="pillar-title">Smart Lead Targeting & List Building</div>
+      <div class="pillar-delivers-text">Prospects are sourced using tightly defined parameters — asset type, geography, ownership profile — and verified before any outreach is sent.</div>
+      <div class="pillar-why">
+        <div class="pillar-why-text">Every touchpoint lands on a real decision-maker with a relevant reason to engage. Smart targeting upfront means no wasted outreach.</div>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <div class="pillar-tag">Pillar 3</div>
+      <div class="pillar-title">The Unified Deal & Relationship CRM</div>
+      <div class="pillar-delivers-text">A single platform tracking every prospect interaction, deal stage, and dormant contact — with automatic re-engagement surfacing built in.</div>
+      <div class="pillar-why">
+        <div class="pillar-why-text">The sales engine generates conversations. The CRM ensures none of them are ever lost.</div>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-num">04</div>
+      <div class="pillar-tag">Pillar 4</div>
+      <div class="pillar-title">Automated Transaction Coordination</div>
+      <div class="pillar-delivers-text">Automated workflows handling task creation, deadline reminders, and deal coordination from listing to close — without manual intervention.</div>
+      <div class="pillar-why">
+        <div class="pillar-why-text">Frees partner time from admin and redirects it toward sourcing and closing — where it actually moves the business forward.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guarantee-section">
+    <h3>Our Confidence Guarantee</h3>
+    <p>We guarantee a minimum of <strong>8 qualified prospect conversations booked</strong> AND a <strong>50% reduction in manual transaction coordination tasks</strong> — both within 60 days. If we don't hit both targets, we work for free until we do.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ROI -->
+<section class="roi-bg">
+  <div class="roi-inner">
+    <div class="section-label">Projected ROI</div>
+    <h2 class="section-title">The Commission Math</h2>
+
+    <div class="roi-highlight">
+      <div class="roi-highlight-label">The Commission Math</div>
+      <div class="roi-equation">
+        <div class="roi-eq-item">
+          <div class="roi-eq-value">$2M</div>
+          <div class="roi-eq-sublabel">Single Deal</div>
+        </div>
+        <div class="roi-eq-op">×</div>
+        <div class="roi-eq-item">
+          <div class="roi-eq-value">3%</div>
+          <div class="roi-eq-sublabel accent">Conservative</div>
+        </div>
+        <div class="roi-eq-op">=</div>
+        <div class="roi-eq-item">
+          <div class="roi-eq-value">$60K</div>
+          <div class="roi-eq-sublabel">Gross Commission</div>
+        </div>
+      </div>
+      <div class="roi-highlight-body">
+        The full annual cost of this partnership at the Growth tier is <strong>$42,000</strong>. One additional deal closed as a result of the outbound engine covers the entire year and generates an <strong>$18,000 net return — pure upside</strong>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PRICING -->
+<section class="pricing-bg">
+  <div class="pricing-inner">
+    <div class="section-label">Investment Options</div>
+    <h2 class="section-title">A Partnership Built Around Proof</h2>
+    <p class="section-intro">We start with a low-risk pilot to prove the system before you commit to a full partnership. Let results lead the conversation.</p>
+
+    <div class="phase">
+      <div class="phase-label"><div class="phase-dot"></div> Phase 1 — Pilot Partnership</div>
+      <div class="pilot-card">
+        <div class="pilot-price">
+          <div class="pilot-price-value">$700</div>
+          <div class="pilot-price-period">per month</div>
+          <div class="pilot-price-duration">Months 1–2</div>
+        </div>
+        <div class="pilot-content">
+          <h3>Prove It Before You Commit</h3>
+          <p>We build and activate the full four-pillar system first and let the results speak. At Widespread's commission economics, a single conversation that converts to a closed transaction generates more than enough to justify the entire engagement many times over.</p>
+          <p>At the end of Month 2, we review performance against both guarantee targets together and transition to the full partnership tier that fits your goals.</p>
+          <div class="pilot-guarantee">
+            🛡️ &nbsp;<strong>Guarantee applies from day one:</strong> 8 qualified conversations booked and 50% reduction in manual TC tasks within 60 days — or we work for free.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label"><div class="phase-dot"></div> Phase 2 — Full Partnership (Month 3+)</div>
+      <div class="tiers-grid">
+        <div class="tier-card">
+          <div class="tier-name">Growth</div>
+          <div class="tier-price">$3,500<span>/mo</span></div>
+          <div class="tier-annual">$42,000 annually — covered by one $2M deal at 3%</div>
+          <div class="tier-divider"></div>
+          <div class="tier-desc">Full build and implementation delivered as a ready-to-operate engine. Your team manages ongoing optimization internally.</div>
+          <ul class="tier-includes">
+            <li>Full four-pillar system implementation</li>
+            <li>Comprehensive team training & documentation</li>
+            <li>All technology infrastructure included</li>
+            <li>Quarterly business reviews</li>
+            <li>60-day performance guarantee</li>
+          </ul>
+        </div>
+
+        <div class="tier-card">
+          <div class="tier-name">Accelerate</div>
+          <div class="tier-price">$4,500<span>/mo</span></div>
+          <div class="tier-annual">$54,000 annually — covered by one $2M deal at 3%</div>
+          <div class="tier-divider"></div>
+          <div class="tier-desc">Everything in Growth, plus we actively manage and optimize the outbound engine on an ongoing basis. Fully done-for-you — zero internal bandwidth required.</div>
+          <ul class="tier-includes">
+            <li>Everything in Growth</li>
+            <li>Fully managed outbound sales engine</li>
+            <li>Monthly sequence refresh & targeting optimization</li>
+            <li>Performance monitoring & campaign management</li>
+            <li>Monthly strategic review call</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="commission-callout">
+        <div>
+          <h3>One Deal Covers the Year</h3>
+          <p>A single closed deal on a <strong>$2M transaction at a conservative 3% commission generates $60,000</strong> — covering the full annual cost of either tier. At Widespread's projected volume of $5M–$10M this year, the system only needs to be responsible for one additional deal to pay for itself entirely.</p>
+        </div>
+        <div class="commission-math">
+          <div class="commission-math-value">$60K</div>
+          <div class="commission-math-label">One deal covers the year</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- NEXT STEPS -->
+<section class="section">
+  <div class="section-label">Next Steps</div>
+  <h2 class="section-title">Your Implementation Roadmap</h2>
+  <p class="section-intro">With a genuine window of motivated sellers in the market right now, timing matters. Here is exactly what happens from day one.</p>
+
+  <div class="steps-timeline">
+    <div class="step-item">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-timing">Week 1</div>
+        <div class="step-title">Strategic Foundation</div>
+        <div class="step-desc">Audit current outreach activity, prospect data, and transaction workflows. Define what constitutes a qualified prospect conversation for Widespread specifically and establish baseline metrics.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-timing">Weeks 2–3</div>
+        <div class="step-title">System Architecture</div>
+        <div class="step-desc">Build and configure the Outbound Sales Engine and CRM. Build and verify the initial prospect list using tightly defined targeting parameters.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <div class="step-timing">Weeks 4–6</div>
+        <div class="step-title">Market Activation</div>
+        <div class="step-desc">Launch outbound campaigns, implement transaction coordination automation, and begin tracking performance against both guarantee targets.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <div class="step-timing">Week 7+</div>
+        <div class="step-title">Scale & Optimize</div>
+        <div class="step-desc">Review 60-day guarantee milestones together. Optimize messaging and targeting. Prepare transition to full partnership tier based on results delivered.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
